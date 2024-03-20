@@ -1,0 +1,77 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/software.css" />
+<div class="container">
+  <h1>Software Download</h1>
+  <hr class="line" />
+  <div class="mt-3 grid-container">
+    <div id="item1">
+      <p>
+        To use our licensing service offline, you can download one of our
+        software applications. The application does not require an installation.
+        You can download the zip folder, unzip it and use the executable you
+        find inside. The executable only works from within the folder, but you
+        can create a shortcut if necessary.
+      </p>
+      <h2>Windows</h2>
+      {% if not mobile %}
+      <div class="download">
+        <p>
+          Download Windows application:
+          <a href="javascript:void(0);" id="download_Windows">
+            AII_Licensing_Windows.zip
+          </a>
+          {% if windows_size %} ({{ windows_size }} MB) {% endif %}
+        </p>
+      </div>
+      {% endif %} {% if mobile %}
+      <p class="mobile">Download is not available on mobile devices.</p>
+      {% endif %}
+      <hr class="line" />
+      <h2>Linux</h2>
+      {% if not mobile %}
+      <div class="download">
+        <p>
+          Download Linux application:
+          <a href="javascript:void(0);" id="download_Linux">
+            AII_Licensing_Linux.zip
+          </a>
+          {% if linux_size %} ({{ linux_size }} MB) {% endif %}
+        </p>
+      </div>
+      {% endif %} {% if mobile %}
+      <p class="mobile">Download is not available on mobile devices.</p>
+      {% endif %}
+      <hr class="line" />
+      <h2>macOS</h2>
+      {% if not mobile %}
+      <div class="download">
+        <p>
+          Download macOS application:
+          <a href="javascript:void(0);" id="download_macOS">
+            AII_Licensing_macOS.zip
+          </a>
+          {% if macOS_size %} ({{ macOS_size }} MB) {% endif %}
+        </p>
+        <p>
+          You have execute the following comand in the terminal so that you
+          systems does not classify the Application as a Virus. <br />
+          -d com.apple.quarantine Linux_macOS.app
+        </p>
+      </div>
+      {% endif %} {% if mobile %}
+      <p class="mobile">Download is not available on mobile devices.</p>
+      {% endif %}
+    </div>
+    <form id="downloadForm" action="/download_software" method="get">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      <input type="hidden" />
+    </form>
+  </div>
+  <div id="item3"></div>
+</div>
+<script
+  language="JavaScript"
+  type="text/javascript"
+  src="../static/js/software.js"
+></script>
+{% endblock %}

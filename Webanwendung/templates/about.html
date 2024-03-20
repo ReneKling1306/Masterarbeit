@@ -1,0 +1,202 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/about.css" />
+<div class="container">
+  <h1>About AII-License</h1>
+  <hr class="line" />
+  <div id="item2">
+    <h4>Licenses:</h4>
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="/licenses/permitted-for-training">Permitted For Training</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/by">BY</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/nc">NC</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/ng">NG</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/by-nc">BY-NC</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/by-ng">BY-NG</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/nc-ng">NC-NG</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/by-nc-ng">BY-NC-NG</a>
+      </li>
+      <li class="menu-item">
+        <a href="/licenses/do-not-train">Do Not Train</a>
+      </li>
+    </ul>
+    <hr class="line" />
+  </div>
+  <div class="mt-3 grid-container">
+    <div id="item1">
+      <h2>What is the AI-Image-License?</h2>
+      <p>
+        The AI Image License is a newly established licensing idea designed to
+        help rights holders have a say in whether their copyrighted works can be
+        used to train AI models. The license gets embedded in the metadata of
+        your images, giving you complete control over their use and eliminating
+        the need to rely on others for protection. With our licenses, you can
+        choose to allow, restrict or prohibit the use of your works for AI
+        training.
+      </p>
+      <h2>What is uses am i allowing?</h2>
+      <p>
+        If you allow it, companies may create reproductions or derivative works
+        of the Licensed Work only for the purpose of artificial intelligence
+        training.
+      </p>
+      <h2>What are the license options?</h2>
+      <p>
+        You can choose from 8 different licenses which include up to three
+        conditions that regulate the use of the images. These conditions can be
+        combined according to the user's requirements. The conditions include:
+      </p>
+      <h5>
+        <b><u>BY</u></b>
+      </h5>
+      <p>
+        The "BY" (Attribution) licenses permit the use of the licensed material
+        for artificial intelligence purposes of any kind, provided that the
+        rights holder is publicly acknowledged for the use of his work.
+      </p>
+      <h5>
+        <b><u>NC</u></b>
+      </h5>
+      <p>
+        The "NC" (Non-Commercial) licenses permit the use of the licensed
+        material for artificial intelligence purposes of any kind, provided that
+        the intermediate or final products are not used for commercial purposes.
+      </p>
+      <h5>
+        <b><u>NG</u></b>
+      </h5>
+      <p>
+        The "NG" (Non-Generative) licenses permit the use of the licensed
+        material for material for artificial intelligence purposes, provided
+        that the intermediate or final that the intermediate or final products
+        do not belong to the field of generative artificial intelligence.
+      </p>
+      <p>
+        There is also a <u>Permitted For Training</u> license, which is
+        unconditional and allows the licensed works to be used freely for AI
+        training.
+      </p>
+      <p>
+        If you wish to prohibit the use of your works for AI training, you can
+        embed a <u>Do Not Train</u> notice instead. This will signal to
+        companies that you do not want your work to be used for AI training
+        without your consent.
+      </p>
+
+      <h2>How does the licensing work?</h2>
+      <p>
+        You can choose a suitable license using our
+        <a href="/license-picker">license picker</a>. The license will then be
+        embedded in the metadata of your images. This allows web crawlers to
+        recognise and comply with the license terms and conditions. The
+        embedding process is carried out using Phil Harvey's
+        <a href="https://exiftool.org/">ExifTool</a> and will not alter any
+        other data in your images except for the license metadata information.
+      </p>
+      <p>
+        Existing licenses can be overwritten by inserting a new AII license. It
+        must be noted that previous uses are not affected by later changes. If
+        you change a license, please note that you must revise all publications
+        of the image. Outdated versions of your image with the previous license
+        can still be used under these license conditions.
+      </p>
+      <p>
+        The licensing will come with a slight increase in filesize. If you plan
+        to publish your licensed images to online platforms, be sure to check
+        how they handle image metadata, as some remove it, and thus remove the
+        license.
+      </p>
+      <h2>Metadata</h2>
+      <p>
+        The license information is stored in XMP metadata and may include the
+        following tags:
+      </p>
+      <table class="table table-bordered">
+        <thead class="thread-dark">
+          <tr>
+            <th scope="col">aiContact</th>
+            <th scope="col">aiLicense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LicensorName</td>
+            <td>License</td>
+          </tr>
+
+          <tr>
+            <td>LicensorEmail</td>
+            <td>LicenseURL</td>
+          </tr>
+          <tr>
+            <td>LicensorURL</td>
+            <td>LicensingDate</td>
+          </tr>
+          <tr>
+            <td>UserComment</td>
+            <td>LicenseCondition</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        The image below is an example of an image with embedded license
+        information. You can view the metadata by downloading the image or using
+        browser add-ons.
+      </p>
+      <div class="image">
+        <img src="static\AII_Logo.jpg" alt="Image with embedded license" />
+      </div>
+    </div>
+    <div id="item3">
+      <div style="margin-left: 10px">
+        <h4>Licenses:</h4>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="/licenses/permitted-for-training"
+              >Permitted For Training</a
+            >
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/by">BY</a>
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/nc">NC</a>
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/ng">NG</a>
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/by-nc">BY-NC</a>
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/by-ng">BY-NG</a>
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/nc-ng">NC-NG</a>
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/by-nc-ng">BY-NC-NG</a>
+          </li>
+          <li class="menu-item">
+            <a href="/licenses/do-not-train">Do Not Train</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

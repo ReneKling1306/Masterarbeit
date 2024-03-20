@@ -1,0 +1,80 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+<div class="container mt-3">
+  <div>
+    <div class="col-md-7">
+      <h1>Welcome to AI Image License</h1>
+      <hr class="line" />
+      <p class="lead">
+        At AII-License, we believe in fostering a community where creativity
+        meets ethical artificial intelligence (AI) development. Our platform
+        empowers users like you to create and embed licenses into the metadata
+        of images, defining the terms of use specifically for AI training
+        purposes.
+      </p>
+    </div>
+    <!--<div class="row">
+      <div class="col-md-4">
+        <h3>Our Mission</h3>
+        <p class="lead">
+          Our mission is to provide a seamless and user-friendly experience for
+          individuals and organizations engaged in AI image training. We
+          understand the importance of ethical considerations in this rapidly
+          evolving field, and we strive to be the bridge between content
+          creators and AI developers.
+        </p>
+      </div>
+      <div class="col-md-8">
+        <h3>How It Works</h3>
+        <p class="lead">
+          Creating a license on AII-License is simple and intuitive. Users can
+          select from a range of licenses, each designed for different use
+          cases, to specify the terms and conditions that govern the use of
+          their images for AI purposes. This enables users to choose the license
+          that best fits their preferences, including options for attribution
+          requirements, specifying the scope of use for commercial or generative
+          AI, or prohibiting usage altogether. Once the license is generated, it
+          can be easily embedded into the metadata of images, ensuring that AI
+          developers have precise instructions for using the content in a
+          responsible and ethical manner.
+        </p>
+      </div>
+    </div>-->
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-white">
+        <a href="/about"><h3>About AII-License</h3></a>
+        <p>
+          The AII-License is a newly established licensing idea that aims to
+          give copyright holders more autonomy over how their work is used for
+          AI purposes. We offer eight different license options tailored to
+          cover a wide range of applications.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white">
+        <a href="/license-picker"><h3>License Picker</h3></a>
+        <p>
+          Our license picker allows you to create and embed licenses into your
+          image(s). If you are unsure which license to choose, it will guide you
+          through a series of questions to help you find the best fit for your
+          needs.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white">
+        <a href="/licensing-tool"><h3>Licensing Tool</h3></a>
+        <p>
+          If you have previously created a license and want to reuse it, you can
+          use our licensing tool. Additionally, you can download our portable
+          software to create and use licenses on your local machine.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

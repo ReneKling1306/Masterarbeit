@@ -1,0 +1,67 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/licensing_tool.css" />
+<div class="container">
+  <h1>Licensing Tool</h1>
+  <hr class="line" />
+  <form method="post" id="image_form" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <div class="text">
+      <div class="input-text">
+        <div class="input-div text-secondary" id="image_upload">
+          <label for="image">Upload your images here:</label>
+          <p>
+            <input
+              type="file"
+              name="file"
+              id="image"
+              autocomplete="off"
+              form="image_form"
+              class="inputfile"
+              multiple
+              required
+            />
+          </p>
+        </div>
+      </div>
+      <div class="input-text">
+        <div class="input-div text-secondary" id="license_upload">
+          <label for="license">Upload your license here:</label>
+          <p>
+            <input
+              type="file"
+              name="license"
+              id="license"
+              autocomplete="off"
+              form="image_form"
+              class="inputfile"
+              required
+            />
+          </p>
+        </div>
+      </div>
+      <div id="progress" style="display: none">
+        <progress
+          id="progressBar"
+          value="0"
+          max="100"
+          style="width: 300px"
+        ></progress>
+        <h3 id="status"></h3>
+        <p id="loaded_n_total"></p>
+      </div>
+      <p>
+        <input type="submit" id="uploadButton" value="Submit" disabled />
+      </p>
+    </div>
+  </form>
+  <form id="downloadForm" action="/download" method="get">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <input type="hidden" name="unique_id" id="unique_id" />
+  </form>
+</div>
+<script
+  language="JavaScript"
+  type="text/javascript"
+  src="../static/js/licensing_tool.js"
+></script>
+{% endblock %}

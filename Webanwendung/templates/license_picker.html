@@ -1,0 +1,580 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/license_picker.css" />
+{{ additional_content | safe }}
+<div class="container">
+  <h1>License Picker</h1>
+  <hr class="line" />
+  <div class="row justify-content-center">
+    <div class="col-md-6" style="max-width: 400px">
+      <h3>Need help?</h3>
+      <p>
+        If you are not familiar with our licenses, click
+        <a href="/about">here</a> for more information on what each license
+        provides. Alternatively, you can use the License Picker to help you
+        choose the appropriate license.
+      </p>
+    </div>
+    <div class="col-md-6" style="max-width: 400px">
+      <h3>Existing License</h3>
+      <p>
+        If you have previously created a license and wish to apply it to
+        additional images, you can use our
+        <a href="/licensing-tool"> Licensing Tool</a> for a quick integration,
+        or download our portable software if you prefer to do it locally.
+      </p>
+    </div>
+    <div class="col-md-6" style="max-width: 400px">
+      <h3>Software download</h3>
+      <p>
+        If you which to create and use our licenses offline you can download our
+        portable <a href="/software">software</a>.
+      </p>
+    </div>
+  </div>
+  <div class="centering">
+    <div class="card">
+      <div class="form">
+        <div class="left-side">
+          <div class="left-heading">
+            <h3 class="card-title">Follow these Steps:</h3>
+          </div>
+          <ul class="progress-bar">
+            <li class="active" id="default_step">Choose a License</li>
+            <div id="content" style="display: none">
+              <li id="allow_step">Allow Use</li>
+              <li id="attribution_step">Attribution</li>
+              <li id="commercial_step">Commercial Use</li>
+              <li id="generative_step">Generative Use</li>
+            </div>
+            <li id="add_info_step">Additional Details</li>
+            <li id="accept_terms_step">Accept Terms</li>
+            <li id="licensing_tool_step">Licensing Tool</li>
+          </ul>
+        </div>
+        <div class="main active middle" id="default">
+          <div class="text text-secondary">
+            <h2 class="card-title">Choose your License</h2>
+            <p class="card-subtitle">
+              Are you familiar with the different Licenses or do you need help
+              choosing the appropriate one?
+            </p>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_yes"
+                name="license_Group"
+                value="1"
+                form="form"
+                checked
+                required
+              />
+              <label class="form-check-label" for="radio_yes" checked
+                >Yes, i know which License to choose</label
+              >
+            </div>
+          </div>
+          <div class="input-text" id="license-selector">
+            <div class="input-div text-secondary form-group">
+              <select
+                class="form-control-lg"
+                id="license-select"
+                name="license"
+                form="form"
+              >
+                <option value="" selected disabled hidden>
+                  Choose a License
+                </option>
+                <option value="Permitted For Training">
+                  Permitted For Training
+                </option>
+                <option value="BY">BY</option>
+                <option value="NC">NC</option>
+                <option value="NG">NG</option>
+                <option value="BY-NC">BY-NC</option>
+                <option value="BY-NG">BY-NG</option>
+                <option value="NC-NG">NC-NG</option>
+                <option value="BY-NC-NG">BY-NC-NG</option>
+                <option value="Do Not Train">Do Not Train</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_no"
+                name="license_Group"
+                value="0"
+                form="form"
+                required
+              />
+              <label class="form-check-label" for="radio_no"
+                >No, i need help choosing a License</label
+              >
+            </div>
+          </div>
+          <hr class="line" />
+          <div class="buttons">
+            <button id="default_next">Next Step</button>
+          </div>
+        </div>
+        <div class="main middle" id="allow">
+          <div class="text text-secondary">
+            <h2 class="card-title">Allow Use?</h2>
+            <p class="card-subtitle">
+              Do you want to allow the use of your image(s) for the training of
+              AI-Models? If you are unsure what this means/entails you can click
+              <a href="/about">here</a> for a detailed explanation.
+            </p>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_allow_yes"
+                name="allow_Group"
+                value="1"
+                form="form"
+                checked
+                required
+              />
+              <label for="radio_allow_yes" checked
+                >Yes, i allow the use of my image(s)</label
+              >
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_allow_no"
+                name="allow_Group"
+                value="0"
+                form="form"
+                required
+              />
+              <label for="radio_allow_no" checked
+                >No, i do not allow the use of my image(s)</label
+              >
+            </div>
+          </div>
+          <hr class="line" />
+          <div class="buttons button_space">
+            <button id="allow_back">Back</button>
+            <button id="allow_next">Next Step</button>
+          </div>
+        </div>
+        <div class="main middle" id="attribution">
+          <div class="text text-secondary">
+            <h2 class="card-title">Be attributed?</h2>
+            <p class="card-subtitle">
+              Do you want to be credited for the use of your image(s) for the
+              training of AI-Models? If you are unsure what this means/entails
+              you can click <a href="/licenses/by">here</a> for a detailed
+              explanation.
+            </p>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_attribution_yes"
+                name="attribution_Group"
+                value="1"
+                form="form"
+                required
+              />
+              <label for="radio_attribution_yes" checked
+                >Yes, i want to be credited for the use of my image(s)</label
+              >
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_attribution_no"
+                name="attribution_Group"
+                value="0"
+                form="form"
+                checked
+                required
+              />
+              <label for="radio_attribution_no" checked
+                >No, i do not want to be credited for the use of my
+                image(s)</label
+              >
+            </div>
+          </div>
+          <hr class="line" />
+          <div class="buttons button_space">
+            <button id="attribution_back">Back</button>
+            <button id="attribution_next">Next Step</button>
+          </div>
+        </div>
+        <div class="main middle" id="commercial">
+          <div class="text text-secondary">
+            <h2 class="card-title">Allow Commercial Use</h2>
+            <p class="card-subtitle">
+              Do you want to also allow the use of you image(s) for the training
+              of AI-Models that possess commercial intentions? If you are unsure
+              what this means/entails you can click
+              <a href="/licenses/nc">here</a> for a detailed explanation.
+            </p>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_commercial_yes"
+                name="commercial_Group"
+                value="1"
+                form="form"
+                checked
+                required
+              />
+              <label for="radio_commercial_yes" checked
+                >Yes, i allow the use of my image(s) for
+                <u>commercial</u> AI-Models</label
+              >
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_commercial_no"
+                name="commercial_Group"
+                value="0"
+                form="form"
+                required
+              />
+              <label for="radio_commercial_no" checked
+                >No, i do not allow the use of my image(s) for
+                <u>commercial</u> AI-Models</label
+              >
+            </div>
+          </div>
+          <hr class="line" />
+          <div class="buttons button_space">
+            <button id="commercial_back">Back</button>
+            <button id="commercial_next">Next Step</button>
+          </div>
+        </div>
+        <div class="main middle" id="generative">
+          <div class="text text-secondary">
+            <h2 class="card-title">Allow Generative Use</h2>
+            <p class="card-subtitle">
+              Do you want to also allow the use of you image(s) for the training
+              of generative AI-Models? If you are unsure what this means/entails
+              you can click
+              <a href="/licenses/ng">here</a> for a detailed explanation.
+            </p>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_generative_yes"
+                name="generative_Group"
+                value="1"
+                form="form"
+                checked
+                required
+              />
+              <label for="radio_generative_yes" checked
+                >Yes, i allow the use of my image(s) for
+                <u>generative</u> AI-Models</label
+              >
+            </div>
+          </div>
+          <div class="input-text">
+            <div class="input-div text-secondary">
+              <input
+                class="form-check-input"
+                type="radio"
+                id="radio_generative_no"
+                name="generative_Group"
+                value="0"
+                form="form"
+                required
+              />
+              <label for="radio_generative_no" checked
+                >No, i do not allow the use of my image(s) for
+                <u>generative</u> AI-Models</label
+              >
+            </div>
+          </div>
+          <hr class="line" />
+          <div class="buttons button_space">
+            <button id="generative_back">Back</button>
+            <button id="generative_next">Next Step</button>
+          </div>
+        </div>
+        <div class="main middle" id="add_info">
+          <div class="text text-secondary">
+            <h2 class="card-title">Attribution Information</h2>
+            <p class="card-subtitle">
+              Do you wish to add attribution information to the License? If you
+              have chosen a BY license you are required to add at least one form
+              of attribution.
+              <span style="color: crimson"
+                >Otherwise all entries are optional</span
+              >
+              and serve solely to help interested parties to get in contact with
+              you. Please make sure that all entries are correct!
+            </p>
+
+            <div class="input-text">
+              <div class="input-div text-secondary">
+                <label class="form-check-label" for="creator">Creator(s)</label>
+                <input
+                  class="form-check-input"
+                  type="text"
+                  name="Creator"
+                  id="creator"
+                  form="form"
+                  maxlength="75"
+                  placeholder="John Doe, Jane Doe,..."
+                />
+              </div>
+              <div class="input-div text-secondary">
+                <label class="form-check-label" for="email">Email</label>
+                <input
+                  class="form-check-input"
+                  type="text"
+                  name="Email"
+                  id="email"
+                  form="form"
+                  maxlength="75"
+                  placeholder="example@domain.com"
+                />
+              </div>
+            </div>
+            <div class="input-text">
+              <div class="input-div text-secondary">
+                <label class="form-check-label" for="contact"
+                  >Contact Website</label
+                >
+                <input
+                  class="form-check-input"
+                  type="text"
+                  name="Contact"
+                  id="contact"
+                  form="form"
+                  maxlength="200"
+                  placeholder="https://example.com"
+                />
+              </div>
+            </div>
+
+            <div class="input-text">
+              <div class="input-div text-secondary">
+                <label
+                  class="form-check-label"
+                  for="UDD"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="The content of this tag does not affect the license and is not included in the attribution. It can be used to add additional information if needed. "
+                  >User Defined Data &#x1F6C8;
+                </label>
+                <input
+                  class="form-check-input"
+                  type="text"
+                  name="UDD"
+                  id="UDD"
+                  form="form"
+                  maxlength="200"
+                />
+              </div>
+            </div>
+            <hr class="line" />
+            <div class="buttons button_space">
+              <button id="add_info_back">Back</button>
+              <button id="add_info_next">Next Step</button>
+            </div>
+          </div>
+        </div>
+        <div class="main middle" id="accept_terms">
+          <div class="text text-secondary">
+            <h2 class="card-title">Accept Usage Terms</h2>
+
+            <div class="checkboxes">
+              <input
+                type="checkbox"
+                id="checkbox_2"
+                class="checkbox form-check-input"
+              />
+              <label for="checkbox_2" class="container"
+                ><p>
+                  I understand that embedding the AII-License will overwrite
+                  previous AII-Licenses and may overwrite existing metadata
+                  about Copyright.
+                </p>
+              </label>
+            </div>
+            <div class="checkboxes">
+              <input
+                type="checkbox"
+                id="checkbox_1"
+                class="checkbox form-check-input"
+              />
+              <label for="checkbox_1" class="container">
+                <p>
+                  I hereby acknowledge that only the copyright owner is allowed
+                  to apply an AII-License and affirm that I have the necessary
+                  permissions to license the copyrighted material.
+                </p>
+              </label>
+            </div>
+          </div>
+          <hr class="line" />
+          <div class="buttons button_space">
+            <button id="accept_terms_back">Back</button>
+            <button id="accept_terms_next" disabled>Next Step</button>
+          </div>
+        </div>
+        <div class="main middle" id="licensing_tool">
+          <div class="text text-secondary">
+            <h2 class="card-title">Licensing Tool</h2>
+            <p class="card-subtitle">
+              You have successfully created your license. You can now integrate
+              it into you image(s). Uploading an image will automatically insert
+              your license into its metadata and download the edited image file.
+            </p>
+          </div>
+          <div class="text">
+            <form method="post" id="form" enctype="multipart/form-data">
+              <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+              />
+              <div class="input-text">
+                <div class="input-div text-secondary">
+                  <label
+                    class="form-check-label"
+                    for="image"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Currently supported file types are: 'jpg', 'jpeg', 'jpe', 'png', 'jng', 'mng', 'tiff', 'tif', 'webp', 'jp2', 'jpf', 'jpm',
+                    'heif', 'heic', 'hif', 'gif', 'eps', 'psd', 'avif', 'flif', 'mp4'"
+                    >Upload your images here &#x1F6C8;:
+                  </label>
+                  <p>
+                    <input
+                      type="file"
+                      name="file"
+                      id="image"
+                      autocomplete="off"
+                      form="form"
+                      multiple
+                    />
+                  </p>
+                </div>
+              </div>
+              <div id="progress" style="display: none">
+                <progress
+                  id="progressBar"
+                  value="0"
+                  max="100"
+                  style="width: 300px"
+                ></progress>
+                <h3 id="status"></h3>
+                <p id="loaded_n_total"></p>
+              </div>
+              <p>
+                <input
+                  type="submit"
+                  id="uploadButton"
+                  value="Submit"
+                  disabled
+                />
+              </p>
+            </form>
+            <form id="downloadForm" action="/download" method="get">
+              <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+              />
+              <input type="hidden" name="unique_id" id="unique_id" />
+            </form>
+            <hr class="line" />
+            <p id="downloadButton_label_middle" style="display: none">
+              Download your license.<br />
+              You can reuse it in our Software or on the License-Tool Page.
+            </p>
+            <form method="post" id="form">
+              <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+              />
+              <input
+                type="submit"
+                id="downloadButton_middle"
+                value="Download License"
+                form="form"
+                formaction="{{url_for('license_picker')}}"
+                style="display: none"
+              />
+            </form>
+            <!--<form
+              method="post"
+              id="image_form"
+              action="{{url_for('license_picker_upload')}}"
+              enctype="multipart/form-data"
+              class="dropzone"
+            ></form>-->
+            <div class="buttons button_space">
+              <button id="licensing_tool_back">Back</button>
+            </div>
+          </div>
+        </div>
+        <div class="right-side" style="display: none; text-align: center">
+          <div class="text text-secondary">
+            <h3 class="text-white card-title"><span id="selected"></span></h3>
+            <p><span id="display"></span></p>
+            <p id="downloadButton_label" style="display: none">
+              Download your license.<br />
+              You can reuse it in our Software or on the License-Tool Page.
+            </p>
+            <form method="post" id="form">
+              <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+              />
+              <input
+                type="submit"
+                id="downloadButton"
+                value="Download License"
+                form="form"
+                formaction="{{url_for('license_picker')}}"
+                style="display: none"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script
+  language="JavaScript"
+  type="text/javascript"
+  src="../static/js/license_picker.js"
+></script>
+{% endblock %}

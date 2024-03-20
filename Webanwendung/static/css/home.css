@@ -1,0 +1,23 @@
+.button {
+  background-color: #00b1aa;
+  color: black;
+}
+
+.button:hover {
+  background-color: #017571;
+}
+
+.row {
+  margin-top: 5%;
+}
+
+.card {
+  background-color: #212529;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+  border-radius: 20px;
+  padding: 5%;
+  min-height: 250px;
+  margin-bottom: 5%;
+}

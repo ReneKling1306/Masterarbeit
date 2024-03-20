@@ -1,0 +1,28 @@
+#item1 {
+  grid-column: span 6;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  padding: 10px;
+  justify-content: start;
+}
+
+div.download {
+  border: 1px;
+  border-style: solid;
+  display: inline-flex;
+  padding-top: 0.4em;
+  padding-right: 0.8em;
+  padding-bottom: 0.4em;
+  padding-left: 0.8em;
+}
+
+div.download p {
+  margin-bottom: -0.05em;
+}
+
+p.mobile {
+  color: crimson;
+}
