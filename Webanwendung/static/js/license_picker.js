@@ -261,21 +261,38 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   
     $('INPUT[type="file"]').on("change", function () {
-      var ext = this.value.match(/\.(.+)$/)[1].toLowerCase();
+      var files = this.files;
+      var validFileTypes = true;
       allowed_extensions = [
         'jpg', 'jpeg', 'jpe', 'png', 'jng', 'mng', 'tiff', 'tif', 'webp', 'jp2', 'jpf', 'jpm',
                       'heif', 'heic', 'hif', 'gif', 'eps', 'psd', 'avif', 'flif', 'mp4'
       ];
-      if (allowed_extensions.includes(ext)) {
-        $("#uploadButton").prop("disabled", false);
-      } else {
-        alert(
-          '.' +
-            ext +
-            ' - is not an allowed file type. Currently supported file types are: ' +
-            allowed_extensions
-        );
-        this.value = "";
+      for (var i = 0; i < files.length; i++) {
+        var ext =  files[i].name.match(/\.([^.]+)$/);
+        if (!ext) {
+            alert("Datei hat keine Dateierweiterung.");
+            this.value = "";
+            validFileTypes = false;
+            $("#uploadButton").prop("disabled", true);
+            break;
+        }
+        ext = ext[1];
+        if (!allowed_extensions.includes(ext)) {
+          alert(
+            '".' +
+              ext +
+              '" - is not an allowed file type. Currently supported file types are: ' +
+              allowed_extensions
+          );
+          this.value = "";
+          $("#uploadButton").prop("disabled", true);
+          validFileTypes = false;
+          break;
+        }
+      }
+      console.log(validFileTypes)
+      if (validFileTypes) {
+          $("#uploadButton").prop("disabled", false);  
       }
     });
   

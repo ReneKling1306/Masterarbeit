@@ -1,14 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
   $('INPUT[id="image"]').change(function () {
       var files = this.files;
-      var ext = this.value.match(/\.(.+)$/)[1];
       allowed_extensions = [
         'jpg', 'jpeg', 'jpe', 'png', 'jng', 'mng', 'tiff', 'tif', 'webp', 'jp2', 'jpf', 'jpm',
                       'heif', 'heic', 'hif', 'gif', 'eps', 'psd', 'avif', 'flif', 'mp4'
       ];
       var validFileTypes = true;
       for (var i = 0; i < files.length; i++) {
-        var ext = files[i].name.match(/\.(.+)$/)[1];
+        var ext =  files[i].name.match(/\.([^.]+)$/);
+        if (!ext) {
+            alert("Datei hat keine Dateierweiterung.");
+            this.value = "";
+            validFileTypes = false;
+            $("#uploadButton").prop("disabled", true);
+            break;
+        }
+        ext = ext[1];
         if (!allowed_extensions.includes(ext)) {
           alert(
             '".' +
@@ -34,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
           "xmp"
         ];
         if (allowed_extensions.includes(ext)) {
-          if ($('#license')[0].files[0] !== undefined){
+          console.log($('#license')[0].files[0])
+          if ($('#image')[0].files[0] !== undefined){
             $("#uploadButton").prop("disabled", false);
           }
         } else {
