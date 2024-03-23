@@ -5,7 +5,6 @@ import random
 import shutil
 import string
 from threading import Thread
-import threading
 import time
 import zipfile
 from flask import (Flask, jsonify, render_template, request,

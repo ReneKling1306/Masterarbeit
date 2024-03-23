@@ -23,8 +23,6 @@ def get_images_from_google(wd, delay):
     for image in images:
         if image.get_attribute('src'):
             print(image.get_attribute('src'))
-            if image.get_attribute('src') in image_urls:
-                break
 
             if image.get_attribute('src') and 'http' in image.get_attribute('src'):
                 image_urls.add(image.get_attribute('src'))
@@ -37,9 +35,8 @@ def download_image(download_path, url, file_name):
         image_content = requests.get(url).content
         with open(f'{download_path}{file_name}', "wb") as img_file:
             img_file.write(image_content)
-        print("Success")
     except Exception as e:
-        print('FAILED -', e)
+        print('Error:', e)
 
 
 urls = get_images_from_google(wd, 5)

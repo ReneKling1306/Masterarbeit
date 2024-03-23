@@ -420,7 +420,6 @@ class App(customtkinter.CTk):
                 filename = f"{license}_License.xmp"
                 counter = 1
                 while os.path.exists(os.path.join(path, filename)):
-                    # If the file exists, modify the filename with a counter
                     counter += 1
                     filename = f"{license}_License({counter}).xmp"
                 tree.write(os.path.join(path, filename))
@@ -431,8 +430,8 @@ class App(customtkinter.CTk):
             with open(os.path.join(path, filename), "a") as f:
                 f.write("\n<?xpacket end='w'?>\n")
             with open(os.path.join(path, filename), "r+") as f:
-                old = f.read()  # read everything in the file
-                f.seek(0)  # rewind
+                old = f.read()
+                f.seek(0)
                 f.write("<?xpacket begin='' id='W5M0MpCehiHzreSzNTczkc9d'?>\n" + old)
             for line in fileinput.input(os.path.join(path, filename), inplace=True):
                 line = line.replace("ns0", "x")
@@ -589,7 +588,6 @@ class App(customtkinter.CTk):
             text=f"Done. You can find the licensed image(s) under: {path}")
 
     def select_frame_by_name(self, name):
-        # set button color for selected button
         picker_frames = ["license_picker_frame", "allow_use_frame", "attribution_frame",
                          "non_commercial_frame", "non_generative_frame", "add_info", "licensing"]
         self.license_picker_button.configure(
