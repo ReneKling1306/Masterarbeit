@@ -18,16 +18,6 @@ import fileinput
 import sys
 from flask_wtf.csrf import CSRFProtect
 
-###
-#   gunicorn --bind 0.0.0.0 --threads 2 --timeout 600 app:app
-#   pip freeze > requirements.txt
-# TODOs:
-#   - unterscheidung ob lizens einbauen oder copyright notice mit explicitem opt out ✔️
-#   - In azure testen:
-#       - Bildgöße und automatischens löschen (führt dies zu problemen) ✔️
-#       - Scheduler des cleanup funktioniert? ✔️
-#   - Scheduler Cleanup Time überlegen (Täglich usw.) (nur leere Ordner oder nur Ordner mit license.xml löschen) ⭕
-###
 
 tmp_path = os.path.join(tempfile.gettempdir(), 'Uploads')
 
@@ -433,9 +423,6 @@ def license_picker_upload():
 @app.route('/download/<unique_id>/<single>')
 def download(unique_id, single):
     path = os.path.join(tmp_path, unique_id)
-    # del_thread = Thread(target=delay_delete,
-    #                    args=(1, path, True))
-    # del_thread.start()
     if single == 'true':
         filename = [filename for filename in os.listdir(
             path) if not filename.endswith('.xmp')]
@@ -505,14 +492,6 @@ def licensing_tool_upload():
                                     args=(5, path, True))
                 del_thread.start()
                 return jsonify({'error': 'The xmp file provided does not contain a valid license.'})
-                # alert_script = """
-                #    <script>
-                #        $(document).ready(function(){
-                #            alert('The xmp file provided does not contain a valid license.');
-                #        });
-                #    </script>
-                # """
-                # return render_template('licensing_tool.html', additional_content=alert_script)
             condition = ""
             if 'Permitted For Training' not in license and 'Do Not Train' not in license:
                 condition = "Training is allowed when:"
@@ -576,8 +555,6 @@ def licensing_tool_upload():
             if len(imagenames) != 1:
                 zipfolder = zipfile.ZipFile(
                     f'{path}/Licensed_Images.zip', 'w', compression=zipfile.ZIP_STORED)
-
-                # zip all the files which are inside the folder
                 for filename in imagenames:
                     zipfolder.write(
                         filename=f'{path}/{filename}', arcname=filename)

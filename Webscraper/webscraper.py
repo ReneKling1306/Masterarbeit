@@ -5,7 +5,11 @@ from selenium.webdriver.common.by import By
 import requests
 import time
 import exiftool
-wd = webdriver.Firefox()
+
+if platform.system() == 'Darwin':
+    wd = webdriver.Safari()
+else:
+    wd = webdriver.Firefox()
 
 
 def get_images_from_google(wd, delay):
