@@ -21,15 +21,15 @@ In addition, it includes portable software applications for Windows, Linux, and 
 
 2.(Optional) Create a virtual environment and activate it:
 
-```python -m venv aiilicence```
+```python -m venv venv```
 
 Windows:
 
-```aiilicence/Scripts/activate```
+```venv\Scripts\activate```
 
 Linux/macOS:
 
-```source aiilicence/bin/activate```
+```source venv/bin/activate```
 
 
 3. Install the required libraries
