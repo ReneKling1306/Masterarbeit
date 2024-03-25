@@ -89,11 +89,23 @@ On Linux/macOS:
 or
 ```python3 Linux_macOS.py```
 
-2. (After downloading from the Web application) Software might be classified as malware
+2. After downloading from the Web application:
 
-On macOS remove quarantine:
+2.1 Software might be classified as malware
+
+On macOS remove quarantine by executing the following command in the terminal:
 
 ```xattr -r -d com.apple.quarantine Linux_macOS.app``` 
+
+2.2. (Linux and macOS) Change the permission of the exiftool Perl Script:
+
+Linux:
+
+```chmod +x Software.dist/ExifTool/Perl_ExifTool/exiftool```
+
+macOS:
+
+```chmod +x Linux_macOS.app/Contents/MacOS/ExifTool/Perl_ExifTool/exiftool```
 
 ### Webscraper
 
@@ -105,7 +117,7 @@ On macOS remove quarantine:
 
 2.1. Click on **Safari** in the menu bar and navigate to **Preferences**
 
-2.2. Check the **Show Develop menu in menu bar** in the Advanced tab
+2.2. Check the **Show features for web developers** in the Advanced tab
 
 2.3. Access Developer and check the **Allow Remote Automation**
    
