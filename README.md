@@ -75,7 +75,7 @@ or
 
 ### Software
 
-1. (Using script) Navigate to the **Softwareanwendung** folder and run the following command:
+1. (Using the script) Navigate to the **Softwareanwendung** folder and run the following command:
 
 On Windows:
 
