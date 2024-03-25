@@ -382,7 +382,7 @@ def license_picker_upload():
                             f'-XMP-AILicense:License={license}', f'-XMP-AILicense:LicenseURL=www.aiilicense.com/licenses/{"".join(license.replace(" ", "-"))[4:].lower()}',
                             f'-XMP-AILicense:LicenseCondition={condition}', '-overwrite_original', f'{path}/.')
             else:
-                with exiftool.ExifTool(executable=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/Linux/exiftool', config_file=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/License.config') as et:
+                with exiftool.ExifTool(executable=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/Perl_ExifTool/exiftool', config_file=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/License.config') as et:
                     if license == 'AII Do Not Train':
                         et.execute(
                             f'-EXIF:Copyright=Do Not Train',
@@ -533,7 +533,7 @@ def licensing_tool_upload():
                             f'-XMP-AILicense:License={license}', f'-XMP-AILicense:LicenseURL=www.aiilicense.com/licenses/{"".join(license.replace(" ", "-"))[4:].lower()}',
                             f'-XMP-AILicense:LicenseCondition={condition}', '-overwrite_original', f'{path}/.')
             else:
-                with exiftool.ExifTool(executable=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/Linux/exiftool', config_file=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/License.config') as et:
+                with exiftool.ExifTool(executable=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/Perl_ExifTool/exiftool', config_file=f'{os.path.join(os.path.dirname(__file__))}/ExifTool/License.config') as et:
                     if license == 'AII Do Not Train':
                         et.execute(
                             f'-EXIF:Copyright=Do Not Train',
