@@ -259,6 +259,14 @@ input[type="submit"]:disabled {
   color: #666666;
 }
 
+input[type="file"]::file-selector-button {
+  border: 1px solid #999999;
+  border-color: #00b1aa;
+  background-color: #00b1aa;
+  color: #000000;
+  border-radius: 0.2em;
+}
+
 .buttons button {
   margin-top: 15px;
   border: none;
