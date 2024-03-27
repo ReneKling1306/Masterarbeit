@@ -3,9 +3,9 @@ AI Image Licensing Website
 Description
 
 This project was developed as part of a Master's thesis that focuses on creating a new licensing model to give creators more control over how their images are used for AI training. 
-It includes a Flask-based web application that provides information about the licences and allows users to select a licence and embed it in the metadata of their images.
+It includes a Flask-based web application that provides information about the licenses and allows users to select a license and embed it in the metadata of their images.
 In addition, it includes portable software applications for Windows, Linux, and macOS that allow for local license selection and insertion. Furthermore, a simple web scraper has been 
-implemented, which accesses a page from the web application, downloads a sample image, displays its metadata and deletes the image based on the embedded licence.
+implemented, which accesses a page from the web application, downloads a sample image, displays its metadata and deletes the image based on the embedded license.
 
 Table of Contents
 
@@ -162,8 +162,8 @@ Webscraper
     or
     python3 webscraper.py
 
-5. (Firefox) The script might show an eroor message when executed for the first time. It should however work on the second execution.
+5. The script might show an error message when executed for the first time. It should however work on the second execution.
 
 6. The webscraper will download the image from "http://127.0.0.1:5000/about" and save it as "0.jpg" in the "Images" folder
 
-7. It will then print out the metadata of the images located in "Images" and delete all images without an "Permitted For Training" Licence
+7. It will then print out the metadata of the images located in "Images" and delete all images without an "Permitted For Training" License
