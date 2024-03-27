@@ -46,9 +46,25 @@ Windows:
 
 5. (Optional) Create a virtual environment and activate it:
 
+5.1 (If it isnt already installed)
+
+For Ubuntu or other distros with Apt:
+
+```sudo apt-get install python3-venv```
+
+Windows/macOS:
+
+```pip install virtualenv```
+or
+```pip3 install virtualenv```
+
+5.2 Create
+
 ```python -m venv venv```
 or
 ```python3 -m venv venv```
+
+5.3 Activate:
 
 Windows:
 
