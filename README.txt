@@ -66,17 +66,17 @@ Usage
 
 Web application
 
-1. Navigate to the **Webanwendung** folder and run the following command:
+1. Navigate to the "Webanwendung" folder and run the following command:
 
 python app.py
 or
 python3 app.py
 
-2. Open a browser and navigate to **http://127.0.0.1:5000** 
+2. Open a browser and navigate to "http://127.0.0.1:5000" 
 
 Software
 
-1. (Using the script) Navigate to the **Softwareanwendung** folder and run the following command:
+1. (When using the script) Navigate to the "Softwareanwendung" folder and run the following command:
 
 On Windows:
 
@@ -90,7 +90,7 @@ python Linux_macOS.py
 or
 python3 Linux_macOS.py
 
-2. After downloading from the Web application:
+2. When using the software after downloading it from the web application:
 
 2.1 Software might be classified as malware
 
@@ -116,15 +116,15 @@ Webscraper
    
 2.1. Open Safari
 
-2.1. Click on **Safari** in the menu bar and navigate to **Preferences**
+2.1. Click on "Safari" in the menu bar and navigate to "Preferences"
 
-2.2. Check the **Show features for web developers** in the Advanced tab
+2.2. Check the "Show features for web developers" in the Advanced tab
 
-2.3. Access Developer and check the **Allow Remote Automation**
+2.3. Access Developer and check the "Allow Remote Automation"
    
-3. Start the Web application
+3. Start the web application
 
-4. Navigate to the **Webscraper** folder and run the following command:
+4. Navigate to the "Webscraper" folder and run the following command:
 
 python webscraper.py
 or
@@ -132,6 +132,6 @@ python3 webscraper.py
 
 5. (Firefox) The script might show an eroor message when executed for the first time. It should however work on the second execution.
 
-6. The webscraper will download the image from **http://127.0.0.1:5000/about** and save it as **0.jpg** in the **Images** folder
+6. The webscraper will download the image from "http://127.0.0.1:5000/about" and save it as "0.jpg" in the "Images" folder
 
-7. It will then print out the metadata of the images located in **Images** and delete all images without an **Permitted For Training** Licence
+7. It will then print out the metadata of the images located in "Images" and delete all images without an "Permitted For Training" Licence
