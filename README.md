@@ -26,7 +26,7 @@ Download the latest version here:
 
 (Windows): Download from the Microsoft Store
 
-3. Install pip if it isnt already installed
+3. Install pip if it is not already installed
 
 macOS:
 
@@ -46,7 +46,7 @@ Windows:
 
 5. (Optional) Create a virtual environment and activate it:
 
-5.1 (If it isnt already installed)
+5.1 (If it is not already installed)
 
 For Ubuntu or other distros with Apt:
 
