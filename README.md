@@ -46,7 +46,7 @@ Windows:
 
 5. (Optional) Create a virtual environment and activate it:
 
-5.1 (If it is not already installed)
+5.1 (If venv is not already installed)
 
 For Ubuntu or other distros with Apt:
 
