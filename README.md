@@ -26,9 +26,25 @@ Download the latest version here:
 
 (Windows): Download from the Microsoft Store
 
-3. Open a terminal and navigate into the project
+3. Install pip if it isnt already installed
 
-4. (Optional) Create a virtual environment and activate it:
+macOS:
+
+```python -m ensurepip --upgrade```
+or
+```python3 -m ensurepip --upgrade```
+
+Linux (Ubuntu and other Debian derivatives):
+
+```sudo apt-get install python3-pip```
+
+Windows:
+
+```py -m ensurepip --upgrade```
+
+4. Open a terminal and navigate into the project
+
+5. (Optional) Create a virtual environment and activate it:
 
 ```python -m venv venv```
 or
@@ -42,13 +58,13 @@ Linux/macOS:
 
 ```source venv/bin/activate```
 
-5. Install the required libraries
+6. Install the required libraries
 
 ```pip install -r requirements.txt```
 or
 ```pip3 install -r requirements.txt```
 
-6. (Additional: Linux) If the Tkinter library is missing:
+7. (Additional: Linux) If the Tkinter library is missing:
 
 For Ubuntu or other distros with Apt:
 
