@@ -102,7 +102,7 @@ On macOS remove quarantine by executing the following command in the terminal:
 
 Linux:
 
-```chmod +x Software.dist/ExifTool/Perl_ExifTool/exiftool```
+```chmod +x AII_Licensing_Linux/ExifTool/Perl_ExifTool/exiftool```
 
 macOS:
 
