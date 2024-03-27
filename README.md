@@ -64,7 +64,7 @@ or
 or
 ```python3 -m venv venv```
 
-5.3 Activate:
+5.3 Activate
 
 Windows:
 
