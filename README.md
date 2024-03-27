@@ -76,7 +76,7 @@ or
 
 ### Software
 
-1. (Using the script) Navigate to the **Softwareanwendung** folder and run the following command:
+1. (When using the script) Navigate to the **Softwareanwendung** folder and run the following command:
 
 On Windows:
 
@@ -90,7 +90,7 @@ On Linux/macOS:
 or
 ```python3 Linux_macOS.py```
 
-2. After downloading from the Web application:
+2. When using the software after downloading it from the web application:
 
 2.1 Software might be classified as malware
 
@@ -110,7 +110,7 @@ macOS:
 
 ### Webscraper
 
-1. Requires Firefox to be installed on Linux or Windows and Safari on macOS
+1. Requires Firefox to be installed on Linux/Windows and Safari on macOS
 
 2. On macOS
    
@@ -122,7 +122,7 @@ macOS:
 
 2.3. Access Developer and check the **Allow Remote Automation**
    
-3. Start the Web application
+3. Start the web application
 
 4. Navigate to the **Webscraper** folder and run the following command:
 
