@@ -148,11 +148,11 @@ implemented, which accesses a page from the web application, downloads a sample 
    
     2.1. Open Safari
     
-    2.1. Click on **Safari** in the menu bar and navigate to **Preferences**
+    2.2. Click on **Safari** in the menu bar and navigate to **Preferences**
     
-    2.2. Check the **Show features for web developers** in the Advanced tab
+    2.3. Check the **Show features for web developers** in the Advanced tab
     
-    2.3. Access Developer and check the **Allow Remote Automation**
+    2.4. Access Developer and check the **Allow Remote Automation**
    
 3. Start the web application
 
